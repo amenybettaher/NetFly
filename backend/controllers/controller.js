@@ -13,13 +13,18 @@ const getAllfilm = (req, res) => {
 const getOnefilm = (req, res) => {
     const name = req.params.name;
     netfly.getOne(name, (err, result) => {
-        if (err) {
-            res.status(500).send(err);
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        if (!result) {
+          res.status(404).send("Film not found");
         } else {
-            res.status(200).json(result);
+          res.status(200).json(result);
         }
+      }
     });
-}
+  };
+  
 
 const createfilm = (req, res) => {
     netfly.create(req.body, (err, result) => {
