@@ -1,8 +1,8 @@
 const connection = require('../database/index.js');
 
 const getAll = (callback) => {
-    const query = 'SELECT * FROM netfly';
-    connection.query(query, (err, result) => {                                  
+    const query = 'SELECT * FROM films';
+    connection.query(query, (err, result) => {
         if (err) {
             callback(err, null);
         } else {
@@ -12,7 +12,7 @@ const getAll = (callback) => {
 }
 
 const getOne = (name, callback) => {
-    const query = 'SELECT * FROM netfly WHERE name=?';
+    const query = 'SELECT * FROM films WHERE name=?';
     connection.query(query, [name], (err, result) => {
         if (err) {
             callback(err, null);
@@ -27,10 +27,10 @@ const getOne = (name, callback) => {
 }
 
 const create = (filmData, callback) => {
-    const { img, name, description, category } = filmData;
-    const query = 'INSERT INTO netfly (img, name, description, category) VALUES (?, ?, ?, ?)';
+    const { img, name,price, description, category } = filmData;
+    const query = 'INSERT INTO films (img, name, price ,description, category) VALUES (?,?,?,?,?)';
 
-    connection.query(query, [img, name, description, category], (err, result) => {
+    connection.query(query, [img, name,price , description, category], (err, result) => {
         if (err) {
             callback(err, null);
         } else {
@@ -40,7 +40,7 @@ const create = (filmData, callback) => {
 };
 
 const remove = (filmName, callback) => {
-    const query = 'DELETE FROM netfly WHERE name=?';
+    const query = 'DELETE FROM films WHERE name=?';
     connection.query(query, [filmName], (err) => {
         if (err) {
             callback(err);
@@ -51,9 +51,9 @@ const remove = (filmName, callback) => {
 }
 
 const update = (filmName, filmData, callback) => {
-    const { img, name, description, category } = filmData;
-    const query = 'UPDATE netfly SET img=?, name=?, description=?, category=? WHERE name=?';
-    connection.query(query, [img, name, description, category, filmName], (err, result) => {
+    const { img, name,price, description, category } = filmData;
+    const query = 'UPDATE films SET img=?, name=?, price=?, description=?, category=? WHERE name=?';
+    connection.query(query, [img, name,price, description, category, filmName], (err, result) => {
         if (err) {
             callback(err, null);
         } else {
@@ -62,7 +62,7 @@ const update = (filmName, filmData, callback) => {
     });
 }
 const getByCategory = (category, callback) => {
-    const query = 'SELECT * FROM netfly WHERE category=?';
+    const query = 'SELECT * FROM films WHERE category=?';
     connection.query(query, [category], (err, result) => {
         if (err) {
             callback(err, null);
