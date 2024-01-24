@@ -2,7 +2,7 @@ const connection = require('../database/index.js');
 
 const getAll = (callback) => {
     const query = 'SELECT * FROM netfly';
-    connection.query(query, (err, result) => {
+    connection.query(query, (err, result) => {                                  
         if (err) {
             callback(err, null);
         } else {
