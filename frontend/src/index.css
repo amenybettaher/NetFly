@@ -1,13 +1,525 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.all-product {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.product-list-item {
+  background-color: rgba;
+  border: 1px solid #d1ccc0; 
+  padding: 15px;
+  width: 250px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+
 }
+
+/* .product-list-item :hover {
+transform: scale(20%);
+} */
+.product-list-item img{
+  width: 100%;
+  height: auto;
+}
+.product-list-item-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #e6e9ec; 
+}
+
+.product-list-item-byline {
+  font-size: 14px;
+  color: #6e6e6e;
+}
+
+.product-list-item-byline-available {
+  color: #27ae60; 
+}
+
+.product-list-item-lede img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd; 
+  border-radius: 4px;
+  margin-right: 8px;
+  flex-grow: 1;
+}
+
+.search-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #2c3e50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-button:hover,
+.search-button:focus {
+  background-color: #8B4513; 
+}
+
+.coffee-nav {
+  background-color: #8B4513; 
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Francois One", sans-serif;
+  color: #fff; 
+}
+
+.create-post {
+  background-color: #f9f9f9; 
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.new-post-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.new-post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field,
+.textarea-field {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd; 
+  border-radius: 4px;
+}
+
+.publish-button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #2c3e50;
+  color: #fff; 
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.publish-button:hover {
+  background-color: #1a2533; 
+}
+
+.coffee-nav div {
+  cursor: pointer;
+}
+
+.nav-selected {
+  border-bottom: 2px solid #fff; 
+  padding-bottom: 8px;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+
+.single-product {
+  background-color: #ffffff; 
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6); 
+  margin-bottom: 20px;
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; 
+  margin-bottom: 10px;
+}
+
+.product-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.product-rating,
+.product-date {
+  font-size: 16px;
+  color: #555; 
+}
+
+.product-votes {
+  font-size: 18px;
+  color: #2c3e50; 
+}
+
+body{
+  body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars from appearing */
+  }
+  
+ background-color: #000000;
+  
+  /* Rest of your styles */
+  
+ 
+}
+
+/* Add this CSS to your existing stylesheet */
+.all-product .product-list-item button {
+  background-color: #3498db; /* Default button color */
+  color: #ffffff; /* Default text color */
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.all-product .product-list-item button:hover {
+  background-color: #e74c3c; /* Change button color on hover */
+}
+
+.all-product .product-list-item button:active {
+  background-color: #f39c12; /* Change button color when clicked */
+}
+.product-list-item-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #e6e9ec; 
+}
+.navbar {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+
+.navbar-links {
+  margin-top: 10px;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-right: 10px; /* Adjust margin as needed */
+}
+
+.search-bar input {
+  padding: 8px;
+  margin-right: 5px;
+}
+
+.search-bar button {
+  padding: 8px 12px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #2980b9;
+}
+
+.navbar {
+  background-color: #000000; /* Deep gray background */
+  color: #fff; /* White text */
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #e74c3c; /* Accent color, change as needed */
+}
+
+.navbar-links {
+  display: flex;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+#web {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 36px;
+  color: #3498db; /* Your desired text color */
+  text-align: center;
+  margin-top: 20px; /* Adjust margin as needed */
+}
+/* Add this to your styles or create a separate stylesheet */
+#delete {
+  background-color: red;
+  color: white;
+  margin-right: 5px;
+}
+
+#update {
+  background-color: green;
+  color: white;
+  margin-right: 5px;
+}
+.add-new-car {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #747070;
+  border-radius: 8px;
+  background-color: rgba;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-new-car h2 {
+  text-align: center;
+  color: #cbbcbc;
+}
+
+.add-new-car label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #ac9c9c;
+}
+
+.add-new-car input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.add-new-car button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.add-new-car button:hover {
+  background-color: #2980b9;
+}
+.add-product-section {
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-product-section h2 {
+  color: #beafaf;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.add-product-section label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.add-product-section input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add-product-section button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.add-product-section button:hover {
+  background-color: #45a049;
+}
+label{color: #ccc;}
+.product-list-item-description{
+  color: bisque;
+}
+.product-list-item-category{
+  color: #ddd;
+}
+video{width: 100%;
+  height: 500px;
+}
+.detailed-view {
+  background-color: #ffffff;
+  padding: 15px; /* Adjust padding */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  max-width: 500px; /* Set the maximum width */
+  width: 100%; /* Make it responsive to the width of the viewport */
+}
+
+
+.detailed-view img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 10px;
+}
+
+.detailed-view .product-list-item-title,
+.detailed-view .product-list-item-price,
+.detailed-view .product-list-item-description,
+.detailed-view .product-list-item-category {
+  margin: 8px; /* Adjust margin */
+}
+
+.detailed-view .product-list-item-title {
+  font-size: 20px; /* Adjust font size */
+  font-weight: bold;
+  color: #333;
+}
+
+.detailed-view .product-list-item-price {
+  font-size: 16px; /* Adjust font size */
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: rgb(228, 184, 130);
+}
+
+.detailed-view .product-list-item-description {
+  font-size: 14px; /* Adjust font size */
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.detailed-view .product-list-item-category {
+  font-size: 14px; /* Adjust font size */
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.detailed-view button {
+  background-color: #000000;
+  color: #fff;
+  padding: 8px; /* Adjust padding */
+  border: none;
+  border-radius: 0 0 8px 8px;
+  cursor: pointer;
+  font-size: 14px; /* Adjust font size */
+  width: 100%;
+}
+
+.detailed-view button:hover {
+  background-color: #4d403f;
+}
+.films-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-list-item {
+  /* Your existing styles for product-list-item */
+  transition: filter 0.3s ease-in-out;
+}
+
+.blur {
+  filter: blur(5px); /* Adjust the blur intensity */
+}
+
+.blurred-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Allow clicks to go through the blurred background */
+  z-index: 1000;
+  backdrop-filter: blur(5px); /* Adjust the blur intensity */
+  overflow: hidden; /* Hide any content overflowing from the blurred background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailed-view {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.detailed-view button {
+  background-color: #000000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.detailed-view button:hover {
+  background-color: #4d403f;
+}
+
