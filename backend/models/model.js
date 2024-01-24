@@ -14,17 +14,18 @@ const getAll = (callback) => {
 const getOne = (name, callback) => {
     const query = 'SELECT * FROM films WHERE name=?';
     connection.query(query, [name], (err, result) => {
-        if (err) {
-            callback(err, null);
+      if (err) {
+        callback(err, null);
+      } else {
+        if (result.length === 0) {
+          callback(null, null); 
         } else {
-            if (result.length === 0) {
-                callback("film not found", null);
-            } else {
-                callback(null, result[0]);
-            }
+          callback(null, result[0]);
         }
+      }
     });
-}
+  };
+  
 
 const create = (filmData, callback) => {
     const { img, name,price, description, category } = filmData;

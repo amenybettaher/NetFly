@@ -1,52 +1,90 @@
+body{
+  body {
+    margin: 0;
+    overflow: hidden; 
+  }
+  
+ background-color: #000000;
+  
+}
+
+.logo {
+  width: 80px;  
+  height: auto; 
+  margin-left: 0%; 
+  margin-top: auto;
+}
+
+/*search :*/ 
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3%;
+  margin-bottom: 5%;
+}
+
+.search input {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  padding: 8px;
+  border-radius: 4px; 
+  margin-right: 6px;
+}
+
+.search button {
+  border: none;
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #000000;
+  box-shadow: 1px 1px 2px #ccc;
+  color: #fff;
+  margin: auto;
+ 
+  
+}
+
 .all-product {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-around;
+  margin: 1%;
 }
 
 .product-list-item {
   background-color: rgba;
   border: 1px solid #d1ccc0; 
   padding: 15px;
-  width: 250px;
+  width: 240px;
+  height: 360px;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
 
 }
 
-/* .product-list-item :hover {
-transform: scale(20%);
-} */
+
 .product-list-item img{
   width: 100%;
   height: auto;
+  border-radius: 8px;
+
 }
 .product-list-item-title {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
   margin-bottom: 8px;
   color: #e6e9ec; 
 }
 
-.product-list-item-byline {
-  font-size: 14px;
-  color: #6e6e6e;
+.all-product .product-list-item-price {
+font-size:17px;
 }
-
-.product-list-item-byline-available {
-  color: #27ae60; 
-}
-
-.product-list-item-lede img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-top: 10px;
-}
-
-
 .search-container {
   display: flex;
   align-items: center;
@@ -175,18 +213,7 @@ transform: scale(20%);
   color: #2c3e50; 
 }
 
-body{
-  body {
-    margin: 0;
-    overflow: hidden; /* Prevent scrollbars from appearing */
-  }
-  
- background-color: #000000;
-  
-  /* Rest of your styles */
-  
- 
-}
+
 
 /* Add this CSS to your existing stylesheet */
 .all-product .product-list-item button {
@@ -211,32 +238,7 @@ body{
   margin-bottom: 8px;
   color: #e6e9ec; 
 }
-.navbar {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: #fff;
-  padding: 15px;
-  text-align: center;
-}
 
-.navbar h1 {
-  margin: 0;
-}
-
-.navbar-links {
-  margin-top: 10px;
-}
-
-.navbar-links a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.navbar-links a:hover {
-  text-decoration: underline;
-}
 .search-bar {
   display: flex;
   align-items: center;
@@ -260,44 +262,42 @@ body{
   background-color: #2980b9;
 }
 
+
 .navbar {
   background-color: #000000; /* Deep gray background */
   color: #fff; /* White text */
   padding: 15px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-start; 
+
 }
 
-.navbar h1 {
+.navbar h2 {
   margin: 0;
-  font-size: 24px;
-  color: #e74c3c; /* Accent color, change as needed */
+  font-size: 18px; 
+  color: #ffffff; 
+  margin-left: 50px;
 }
 
-.navbar-links {
-  display: flex;
+.navbar select {
+  margin-left: auto; 
 }
 
-.navbar-links a {
+.navbar a {
   color: #fff;
   text-decoration: none;
-  margin: 0 15px;
+  margin-right: 15px; 
   font-size: 16px;
   font-weight: bold;
 }
 
-.navbar-links a:hover {
+.navbar a:hover {
   text-decoration: underline;
 }
-#web {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 36px;
-  color: #3498db; /* Your desired text color */
-  text-align: center;
-  margin-top: 20px; /* Adjust margin as needed */
-}
-/* Add this to your styles or create a separate stylesheet */
+
+
+
 #delete {
   background-color: red;
   color: white;
