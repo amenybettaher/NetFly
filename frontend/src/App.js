@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Films from './components/Films.jsx';
+import AddFilm from './components/AddFilm.jsx';
+import UpdateFilm from './components/UpdateFilm.jsx';
 import Category from './components/Category.jsx';
-import logo from './logo/logo.png';
 import Search from './components/Search.jsx';
+import logo from './logo/logo.png';
+
+
 
 function App() {
   const [view, setView] = useState('Films');
@@ -48,7 +52,6 @@ function App() {
           <option value="Action">Action</option>
           <option value="Comedy">Comedy</option>
           <option value="Horror">Horror</option>
-          <option value="Drama">Drama</option>
           <option value="Animated">Animated</option>
           <option value="Romantic">Romantic</option>
         </select>
@@ -57,8 +60,8 @@ function App() {
         <Search handleSearch={handleSearch} />
         {view === 'Category' && <Category category={category} />}
         {view === 'Films' && <Films data={filteredData || []} />}
-        {/* {view === 'AddFilm' && <AddFilm changeView={changeView} />}
-        {view === 'UpdateFilm' && <UpdateFilm changeView={changeView} />} */}
+        {view === 'AddFilm' && <AddFilm changeView={changeView} />}
+        {view === 'UpdateFilm' && <UpdateFilm changeView={changeView} />}
       </div>
     </div>
   );
