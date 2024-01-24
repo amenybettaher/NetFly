@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function Films() {
   const [films, setFilms] = useState([]);
+  const [selectedFilm, setSelectedFilm] = useState(null);
 
   useEffect(() => {
     const fetchAll = async () => {
@@ -16,23 +17,39 @@ function Films() {
     };
     fetchAll();
   }, []);
-console.log("hello ");
-  
-    return (
-        <div className='films'>
-          {films.map((item) => (
-            <div key={item.id}>
-              <img src={item.img} alt={item.name} />
-              <h1>Name: {item.name}</h1>
-              <h1>Price: {item.price}</h1>
-              <p>Description: {item.description}</p>
-              <p>Category: {item.category}</p>
-            </div>
-          ))}
-        </div>
-      );
-      
 
+  const handleFilmClick = (film) => {
+    setSelectedFilm(film);
+  };
+
+  const handleCloseDetails = () => {
+    setSelectedFilm(null);
+  };
+
+  return (
+    <div className='all-product'>
+      {films.map((item) => (
+        <div key={item.id} className='product-list-item' onClick={() => handleFilmClick(item)}>
+          <img src={item.img} alt={item.name} />
+          <h1 className='product-list-item-title'>Name: {item.name}</h1>
+          <h1 className='product-list-item-price'>Price: {item.price}</h1>
+          <p className='product-list-item-description'>Description: {item.description.slice(0, 100)}...</p>
+          <p className='product-list-item-category'>Category: {item.category}</p>
+        </div>
+      ))}
+
+      {selectedFilm && (
+        <div className='detailed-view'>
+          <img src={selectedFilm.img} alt={selectedFilm.name} />
+          <h1 className='product-list-item-title'>Name: {selectedFilm.name}</h1>
+          <h1 className='product-list-item-price'>Price: {selectedFilm.price}</h1>
+          <p className='product-list-item-description'>Description: {selectedFilm.description}</p>
+          <p className='product-list-item-category'>Category: {selectedFilm.category}</p>
+          <button onClick={handleCloseDetails}>Close</button>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default Films;
