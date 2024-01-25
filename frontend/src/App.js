@@ -6,13 +6,22 @@ import UpdateFilm from './components/UpdateFilm.jsx';
 import Category from './components/Category.jsx';
 import Search from './components/Search.jsx';
 import logo from './logo/logo.png';
+
 import AddProduct from './components/AddProduct';
 
+
+import Footer from './components/Footer.jsx';
+
+
 function App() {
+  const [term, setTerm] = useState("");
+
   const [view, setView] = useState('Films');
   const [category, setSelectedCategory] = useState('');
+
   const [filteredData, setFilteredData] = useState(null);
   const [cart, setCart] = useState([]);
+
 
   const changeView = (newView) => {
     setView(newView);
@@ -30,7 +39,6 @@ function App() {
   const handleSearch = async (searchTerm) => {
     try {
       const res = await axios.get(`http://localhost:4000/api/film/getOne/${searchTerm}`);
-      setFilteredData(res.data ? [res.data] : []);
     } catch (err) {
       console.log('Error searching films:', err);
     }
@@ -69,9 +77,11 @@ function App() {
 
       </nav>
       <div>
-        <Search handleSearch={handleSearch} />
+        <Search handleSearch={handleSearch}  set={setTerm}/>
         {view === 'Category' && <Category category={category} />}
         {view === 'Films' && <Films data={filteredData || []} onBuy={handleBuy} />}
+        {view === 'Films' && <Films term={term} />}
+
         {view === 'AddFilm' && <AddFilm changeView={changeView} />}
         {view === 'UpdateFilm' && <UpdateFilm changeView={changeView} />}
 
@@ -96,6 +106,7 @@ function App() {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 }

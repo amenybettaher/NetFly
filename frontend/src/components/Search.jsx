@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
-function Search({ handleSearch }) {
+
+function Search({ handleSearch ,set}) {
   const [searchTerm, setSearchTerm] = useState('');
+  console.log("searchTerm",searchTerm);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
+set(event.target.value)
   };
 
   const handleSubmit = (event) => {

@@ -2,20 +2,22 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function Films({ onBuy }) {
+
   const [films, setFilms] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState(null);
   const [hoverRating, setHoverRating] = useState(0);
 
+  const fetchAll = async () => {
+    try {
+      const res = await axios.get("http://localhost:4000/api/film/getAll");
+      console.log('Response data:', res.data);
+      setFilms(res.data);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+    }
+  };
   useEffect(() => {
-    const fetchAll = async () => {
-      try {
-        const res = await axios.get("http://localhost:4000/api/film/getAll");
-        console.log('Response data:', res.data);
-        setFilms(res.data);
-      } catch (err) {
-        console.log('Error fetching data:', err);
-      }
-    };
+  
     fetchAll();
   }, []);
 
@@ -67,7 +69,14 @@ function Films({ onBuy }) {
 
   return (
     <div className='all-product'>
-      {films.map((item) => (
+      {
+  
+      
+      
+      
+      films
+      .filter(e=>e.name.toLowerCase().includes(term.toLowerCase()))
+      .map((item) => (
         <div key={item.id} className={`product-list-item ${selectedFilm && selectedFilm.name !== item.name ? 'blur' : ''}`} onClick={() => handleFilmClick(item)}>
           <img src={item.img} alt={item.name} />
           <h1 className='product-list-item-title'>Name: {item.name}</h1>
