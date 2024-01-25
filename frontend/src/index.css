@@ -583,3 +583,47 @@ video{width: 100%;
 .product-list-item.blur {
   filter: blur(5px);
 }
+#buy{
+  background-color: red;
+  color: white;
+  margin-right: 200px;
+}
+.cart-container {
+  margin-top: 20px;
+}
+
+.cart-list {
+  list-style: none;
+  padding: 0;
+  color: #cbbcbc;
+}
+
+.cart-item {
+  display: flex;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.cart-item-details {
+  flex: 1;
+  color: antiquewhite;
+}
+
+.cart-item-details h3,
+.cart-item-details p {
+  margin: 0;
+}
+h2{
+  color: rgb(167, 162, 156);
+}
+h3{
+  color: rgb(167, 162, 156);
+}

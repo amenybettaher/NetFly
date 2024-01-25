@@ -1,10 +1,7 @@
-
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
-function Films() {
+function Films({ onBuy }) {
   const [films, setFilms] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState(null);
   const [hoverRating, setHoverRating] = useState(0);
@@ -30,7 +27,6 @@ function Films() {
     try {
       await axios.delete(`http://localhost:4000/api/film/delete/${encodeURIComponent(name)}`);
       setFilms((prevFilms) => prevFilms.filter((film) => film.name !== name));
-      // Optionally, you can clear the selectedFilm state here
     } catch (error) {
       console.error('Error deleting film:', error);
     }
@@ -41,16 +37,13 @@ function Films() {
   };
 
   const handleRatingChange = (film, rating) => {
-    // Update the film's rating on the server
     axios.post(`http://localhost:4000/api/film/rate`, { name: film.name, rating })
       .then(() => {
-        // Update the rating in the local state
         setFilms((prevFilms) =>
           prevFilms.map((prevFilm) =>
             prevFilm.name === film.name ? { ...prevFilm, rating } : prevFilm
           )
         );
-        // Update the selectedFilm state to reflect the new rating
         setSelectedFilm((prevSelectedFilm) =>
           prevSelectedFilm ? { ...prevSelectedFilm, rating } : null
         );
@@ -61,13 +54,15 @@ function Films() {
   };
 
   const handleStarHover = (film, index) => {
-    // Set the hoverRating state when hovering over a star
     setHoverRating(index + 1);
   };
 
   const handleStarLeave = () => {
-    // Clear the hoverRating state when leaving the star area
     setHoverRating(0);
+  };
+
+  const handleBuy = (film) => {
+    onBuy(film);
   };
 
   return (
@@ -80,19 +75,18 @@ function Films() {
           <p className='product-list-item-description'>Description: {item.description.slice(0, 100)}...</p>
           <p className='product-list-item-category'>Category: {item.category}</p>
 
-          {/* Conditionally render the rating stars only when a card is selected */}
           {selectedFilm && selectedFilm.name === item.name && (
             <div className='rating'>
-              <p>Rating: {hoverRating || selectedFilm.rating}</p>
+              <p>Rating: {hoverRating || item.rating}</p>
               {[...Array(5)].map((star, index) => (
                 <span
                   key={index}
-                  className={index < (hoverRating || selectedFilm.rating) ? 'star-filled' : 'star-empty'}
+                  className={index < (hoverRating || item.rating) ? 'star-filled' : 'star-empty'}
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleRatingChange(selectedFilm, index + 1);
+                    handleRatingChange(item, index + 1);
                   }}
-                  onMouseEnter={() => handleStarHover(selectedFilm, index)}
+                  onMouseEnter={() => handleStarHover(item, index)}
                   onMouseLeave={handleStarLeave}
                 >
                   &#9733;
@@ -101,10 +95,10 @@ function Films() {
             </div>
           )}
 
+          <button id='buy' onClick={() => handleBuy(item)}>Buy</button>
           <button onClick={() => handleDelete(item.name)}>Delete</button>
         </div>
       ))}
-
       {selectedFilm && (
         <div className='detailed-view'>
           <img src={selectedFilm.img} alt={selectedFilm.name} />
