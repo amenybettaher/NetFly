@@ -613,6 +613,177 @@ video{width: 100%;
  
 }
 
+
+.cart-item {
+  display: flex;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 15px;
+  background-color: #454040;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cart-item:hover {
+  transform: scale(1.02);
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 8px;
+}
+
+.cart-item-details {
+  flex: 1;
+  color: antiquewhite;
+}
+
+.cart-item-details h3,
+.cart-item-details p {
+  margin: 0;
+}
+
+.cart-item-details p {
+  color: #aaa;
+}
+
+.cart-item-details h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+h2{
+  color: rgb(167, 162, 156);
+}
+h3{
+  color: rgb(167, 162, 156);
+}
+.films-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.film-card {
+  width: 300px;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.film-card:hover {
+  transform: scale(1.05);
+}
+
+.film-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.film-card h1 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.film-card p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+#catName{
+  color: #cbbcbc;
+}
+#catPrice{
+  color: bisque;
+}
+#catDes{
+  color: #747070;
+}
+#cat{
+  color: #ac9c9c;
+}
+.add-product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product-card {
+  width: 300px;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.product-card input,
+.product-card textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.product-card button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background-color: #45a049;
+}
+
+.product-card h2 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #cbbcbc;
+}
+
+.product-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.product-card li {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.product-card button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background-color: #45a049;
+
 .k{
   background-color: #000000;
   font-family:'Times New Roman', Times, serif;
@@ -627,4 +798,5 @@ video{width: 100%;
 
 .navbar h2{
   font-family: 'Times New Roman', Times, serif;
-}
+
+}}
