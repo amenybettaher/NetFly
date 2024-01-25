@@ -103,7 +103,7 @@ function Films({ term, onBuy }) {
             <button id='buy' onClick={() => handleBuy(item)}>Buy</button>
 
             <button onClick={() => handleDelete(item.name)}>Delete</button>
-            <button id='like'>❤️</button>
+            
           </div>
         ))}
       {selectedFilm && (
