@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Films({ onBuy }) {
+function Films({ term, onBuy }) {
 
   const [films, setFilms] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState(null);
@@ -17,7 +17,6 @@ function Films({ onBuy }) {
     }
   };
   useEffect(() => {
-  
     fetchAll();
   }, []);
 
@@ -69,45 +68,40 @@ function Films({ onBuy }) {
 
   return (
     <div className='all-product'>
-      {
-  
-      
-      
-      
-      films
-      .filter(e=>e.name.toLowerCase().includes(term.toLowerCase()))
-      .map((item) => (
-        <div key={item.id} className={`product-list-item ${selectedFilm && selectedFilm.name !== item.name ? 'blur' : ''}`} onClick={() => handleFilmClick(item)}>
-          <img src={item.img} alt={item.name} />
-          <h1 className='product-list-item-title'>Name: {item.name}</h1>
-          <h1 className='product-list-item-price'>Price: {item.price}</h1>
-          <p className='product-list-item-description'>Description: {item.description.slice(0, 100)}...</p>
-          <p className='product-list-item-category'>Category: {item.category}</p>
+      {films
+        .filter((item) => (term ? item.name.toLowerCase().includes(term.toLowerCase()) : true))
+        .map((item) => (
+          <div key={item.id} className={`product-list-item ${selectedFilm && selectedFilm.name !== item.name ? 'blur' : ''}`} onClick={() => handleFilmClick(item)}>
+            <img src={item.img} alt={item.name} />
+            <h1 className='product-list-item-title'>Name: {item.name}</h1>
+            <h1 className='product-list-item-price'>Price: {item.price}</h1>
+            <p className='product-list-item-description'>Description: {item.description.slice(0, 100)}...</p>
+            <p className='product-list-item-category'>Category: {item.category}</p>
 
-          {selectedFilm && selectedFilm.name === item.name && (
-            <div className='rating'>
-              <p>Rating: {hoverRating || item.rating}</p>
-              {[...Array(5)].map((star, index) => (
-                <span
-                  key={index}
-                  className={index < (hoverRating || item.rating) ? 'star-filled' : 'star-empty'}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleRatingChange(item, index + 1);
-                  }}
-                  onMouseEnter={() => handleStarHover(item, index)}
-                  onMouseLeave={handleStarLeave}
-                >
-                  &#9733;
-                </span>
-              ))}
-            </div>
-          )}
+            {selectedFilm && selectedFilm.name === item.name && (
+              <div className='rating'>
+                <p>Rating: {hoverRating || item.rating}</p>
+                {[...Array(5)].map((star, index) => (
+                  <span
+                    key={index}
+                    className={index < (hoverRating || item.rating) ? 'star-filled' : 'star-empty'}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleRatingChange(item, index + 1);
+                    }}
+                    onMouseEnter={() => handleStarHover(item, index)}
+                    onMouseLeave={handleStarLeave}
+                  >
+                    &#9733;
+                  </span>
+                ))}
+              </div>
+            )}
 
-          <button id='buy' onClick={() => handleBuy(item)}>Buy</button>
-          <button onClick={() => handleDelete(item.name)}>Delete</button>
-        </div>
-      ))}
+            <button id='buy' onClick={() => handleBuy(item)}>Buy</button>
+            <button onClick={() => handleDelete(item.name)}>Delete</button>
+          </div>
+        ))}
       {selectedFilm && (
         <div className='detailed-view'>
           <img src={selectedFilm.img} alt={selectedFilm.name} />
