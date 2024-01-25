@@ -7,8 +7,6 @@ import Category from './components/Category.jsx';
 import Search from './components/Search.jsx';
 import logo from './logo/logo.png';
 import AddProduct from './components/AddProduct';
-
-
 import Footer from './components/Footer.jsx';
 
 
@@ -61,17 +59,17 @@ function App() {
         <h2 onClick={() => changeView('UpdateFilm')}>Update Film</h2>
 
 
-        <select onChange={handleCategoryChange} value={category}>
-          <option value="">Show all</option>
-          <option value="Action">Action</option>
-          <option value="Comedy">Comedy</option>
-          <option value="Horror">Horror</option>
-          <option value="Animated">Animated</option>
-          <option value="Romantic">Romantic</option>
+        <select className="category" onChange={handleCategoryChange} value={category}>
+          <option className='k' value="">Category</option>
+          <option className='k' value="Action">Action</option>
+          <option className='k' value="Comedy">Comedy</option>
+          <option  className='k'value="Horror">Horror</option>
+          <option  className='k'value="Animated">Animated</option>
+          <option className='k' value="Romantic">Romantic</option>
         </select>
 
         <span className="items" onClick={() => changeView('cart')}>
-           🛒 CART ({cart.length})
+           <span>🛒</span> CART ({cart.length})
         </span>
 
       </nav>

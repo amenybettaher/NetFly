@@ -6,8 +6,6 @@ function Films({ term, onBuy }) {
   const [films, setFilms] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState(null);
   const [hoverRating, setHoverRating] = useState(0);
-  
-
 
   const fetchAll = async () => {
     try {
@@ -69,15 +67,6 @@ function Films({ term, onBuy }) {
   };
 
 
-  const toggleFavorite = (film) => {
-    setFilms((prevFilms) =>
-      prevFilms.map((prevFilm) =>
-        prevFilm.name === film.name ? { ...prevFilm, isFavorite: !prevFilm.isFavorite } : prevFilm
-      )
-    );
-  };
-  
-
 
   return (
     <div className='all-product'>
@@ -111,9 +100,10 @@ function Films({ term, onBuy }) {
               </div>
             )}
 
-            <button  onClick={() => handleBuy(item)}>Buy</button>
+            <button id='buy' onClick={() => handleBuy(item)}>Buy</button>
 
             <button onClick={() => handleDelete(item.name)}>Delete</button>
+            <button id='like'>❤️</button>
           </div>
         ))}
       {selectedFilm && (
