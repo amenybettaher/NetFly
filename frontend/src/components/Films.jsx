@@ -1,9 +1,8 @@
-
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Films({term}) {
+function Films({ onBuy }) {
+
   const [films, setFilms] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState(null);
   const [hoverRating, setHoverRating] = useState(0);
@@ -47,7 +46,6 @@ function Films({term}) {
             prevFilm.name === film.name ? { ...prevFilm, rating } : prevFilm
           )
         );
-        // Update the selectedFilm state to reflect the new rating
         setSelectedFilm((prevSelectedFilm) =>
           prevSelectedFilm ? { ...prevSelectedFilm, rating } : null
         );
@@ -58,13 +56,15 @@ function Films({term}) {
   };
 
   const handleStarHover = (film, index) => {
-    // Set the hoverRating state when hovering over a star
     setHoverRating(index + 1);
   };
 
   const handleStarLeave = () => {
-    // Clear the hoverRating state when leaving the star area
     setHoverRating(0);
+  };
+
+  const handleBuy = (film) => {
+    onBuy(film);
   };
 
   return (
@@ -86,16 +86,16 @@ function Films({term}) {
 
           {selectedFilm && selectedFilm.name === item.name && (
             <div className='rating'>
-              <p>Rating: {hoverRating || selectedFilm.rating}</p>
+              <p>Rating: {hoverRating || item.rating}</p>
               {[...Array(5)].map((star, index) => (
                 <span
                   key={index}
-                  className={index < (hoverRating || selectedFilm.rating) ? 'star-filled' : 'star-empty'}
+                  className={index < (hoverRating || item.rating) ? 'star-filled' : 'star-empty'}
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleRatingChange(selectedFilm, index + 1);
+                    handleRatingChange(item, index + 1);
                   }}
-                  onMouseEnter={() => handleStarHover(selectedFilm, index)}
+                  onMouseEnter={() => handleStarHover(item, index)}
                   onMouseLeave={handleStarLeave}
                 >
                   &#9733;
@@ -104,10 +104,10 @@ function Films({term}) {
             </div>
           )}
 
+          <button id='buy' onClick={() => handleBuy(item)}>Buy</button>
           <button onClick={() => handleDelete(item.name)}>Delete</button>
         </div>
       ))}
-
       {selectedFilm && (
         <div className='detailed-view'>
           <img src={selectedFilm.img} alt={selectedFilm.name} />
