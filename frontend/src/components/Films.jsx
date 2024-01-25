@@ -67,6 +67,24 @@ function Films({term}) {
     setHoverRating(0);
   };
 
+  const handleAdd = () => {
+    axios
+      .post('http://localhost:4000/api/film/add', {
+        img: img,
+        name: name,
+        description: description,
+        price: price,
+        category: category,
+      })
+      .then((response) => {
+        console.log('Film added successfully:', response.data);
+        changeView('Films');
+      })
+      .catch((error) => {
+        console.error('Error adding film:', error);
+      });
+  };
+
   return (
     <div className='all-product'>
       {
@@ -104,7 +122,9 @@ function Films({term}) {
             </div>
           )}
 
-          <button onClick={() => handleDelete(item.name)}>Delete</button>
+          <button onClick={() => handleDelete(item.name)}>🗑️</button>
+          <button onClick={handleAdd}>hello</button>
+
         </div>
       ))}
 

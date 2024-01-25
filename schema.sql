@@ -18,6 +18,23 @@ CREATE SCHEMA IF NOT EXISTS `netfly` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8m
 USE `netfly` ;
 
 -- -----------------------------------------------------
+-- Table `netfly`.`favorite`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `netfly`.`favorite` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `img` VARCHAR(1000) NULL DEFAULT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `price` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(1000) NOT NULL,
+  `category` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 13
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
 -- Table `netfly`.`films`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `netfly`.`films` (
@@ -29,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `netfly`.`films` (
   `category` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 12
+AUTO_INCREMENT = 18
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 

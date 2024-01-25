@@ -46,6 +46,8 @@ function App() {
         <h2 onClick={() => changeView('Films')}>Home</h2>
         <h2 onClick={() => changeView('AddFilm')}>Add Film</h2>
         <h2 onClick={() => changeView('UpdateFilm')}>Update Film</h2>
+        <h2 onClick={() => changeView('FavoriteList')}>FavoriteList</h2>
+
 
         <select onChange={handleCategoryChange} value={category}>
         <option value="">Show all</option>
