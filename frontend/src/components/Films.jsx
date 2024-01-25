@@ -1,8 +1,8 @@
+// Films.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function Films({ term, onBuy }) {
-
   const [films, setFilms] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState(null);
   const [hoverRating, setHoverRating] = useState(0);
@@ -16,6 +16,7 @@ function Films({ term, onBuy }) {
       console.log('Error fetching data:', err);
     }
   };
+
   useEffect(() => {
     fetchAll();
   }, []);
@@ -87,10 +88,7 @@ function Films({ term, onBuy }) {
                   <span
                     key={index}
                     className={index < (hoverRating || item.rating) ? 'star-filled' : 'star-empty'}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleRatingChange(item, index + 1);
-                    }}
+                    onClick={() => handleRatingChange(item, index + 1)}
                     onMouseEnter={() => handleStarHover(item, index)}
                     onMouseLeave={handleStarLeave}
                   >
@@ -120,10 +118,7 @@ function Films({ term, onBuy }) {
               <span
                 key={index}
                 className={index < (hoverRating || selectedFilm.rating) ? 'star-filled' : 'star-empty'}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleRatingChange(selectedFilm, index + 1);
-                }}
+                onClick={() => handleRatingChange(selectedFilm, index + 1)}
                 onMouseEnter={() => handleStarHover(selectedFilm, index)}
                 onMouseLeave={handleStarLeave}
               >
@@ -138,5 +133,5 @@ function Films({ term, onBuy }) {
     </div>
   );
 }
-
+console.log("aw l console log hne")
 export default Films;
