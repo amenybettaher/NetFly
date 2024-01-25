@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import Search from './Search.jsx';
 
 function Films() {
   const [films, setFilms] = useState([]);
