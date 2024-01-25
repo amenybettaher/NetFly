@@ -28,7 +28,7 @@ function Films() {
 
   const handleDelete = async (name) => {
     try {
-      await axios.delete(`http://localhost:4000/api/film/${encodeURIComponent(name)}`);
+      await axios.delete(`http://localhost:4000/api/film/delete/${encodeURIComponent(name)}`);
       setFilms((prevFilms) => prevFilms.filter((film) => film.name !== name));
       // Optionally, you can clear the selectedFilm state here
     } catch (error) {
