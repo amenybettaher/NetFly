@@ -2,23 +2,23 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Search from './Search.jsx';
 
-function Films() {
+function Films({term}) {
   const [films, setFilms] = useState([]);
   const [selectedFilm, setSelectedFilm] = useState(null);
   const [hoverRating, setHoverRating] = useState(0);
 
+  const fetchAll = async () => {
+    try {
+      const res = await axios.get("http://localhost:4000/api/film/getAll");
+      console.log('Response data:', res.data);
+      setFilms(res.data);
+    } catch (err) {
+      console.log('Error fetching data:', err);
+    }
+  };
   useEffect(() => {
-    const fetchAll = async () => {
-      try {
-        const res = await axios.get("http://localhost:4000/api/film/getAll");
-        console.log('Response data:', res.data);
-        setFilms(res.data);
-      } catch (err) {
-        console.log('Error fetching data:', err);
-      }
-    };
+  
     fetchAll();
   }, []);
 
@@ -30,7 +30,6 @@ function Films() {
     try {
       await axios.delete(`http://localhost:4000/api/film/delete/${encodeURIComponent(name)}`);
       setFilms((prevFilms) => prevFilms.filter((film) => film.name !== name));
-      // Optionally, you can clear the selectedFilm state here
     } catch (error) {
       console.error('Error deleting film:', error);
     }
@@ -41,10 +40,8 @@ function Films() {
   };
 
   const handleRatingChange = (film, rating) => {
-    // Update the film's rating on the server
     axios.post(`http://localhost:4000/api/film/rate`, { name: film.name, rating })
       .then(() => {
-        // Update the rating in the local state
         setFilms((prevFilms) =>
           prevFilms.map((prevFilm) =>
             prevFilm.name === film.name ? { ...prevFilm, rating } : prevFilm
@@ -72,7 +69,14 @@ function Films() {
 
   return (
     <div className='all-product'>
-      {films.map((item) => (
+      {
+  
+      
+      
+      
+      films
+      .filter(e=>e.name.toLowerCase().includes(term.toLowerCase()))
+      .map((item) => (
         <div key={item.id} className={`product-list-item ${selectedFilm && selectedFilm.name !== item.name ? 'blur' : ''}`} onClick={() => handleFilmClick(item)}>
           <img src={item.img} alt={item.name} />
           <h1 className='product-list-item-title'>Name: {item.name}</h1>
@@ -80,7 +84,6 @@ function Films() {
           <p className='product-list-item-description'>Description: {item.description.slice(0, 100)}...</p>
           <p className='product-list-item-category'>Category: {item.category}</p>
 
-          {/* Conditionally render the rating stars only when a card is selected */}
           {selectedFilm && selectedFilm.name === item.name && (
             <div className='rating'>
               <p>Rating: {hoverRating || selectedFilm.rating}</p>

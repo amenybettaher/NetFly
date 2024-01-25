@@ -20,7 +20,7 @@ const getOne = (name, callback) => {
         if (result.length === 0) {
           callback(null, null); 
         } else {
-          callback(null, result[0]);
+          callback(null, result);
         }
       }
     });
