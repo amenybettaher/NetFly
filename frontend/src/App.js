@@ -10,9 +10,10 @@ import logo from './logo/logo.png';
 import Footer from './components/Footer.jsx';
 
 function App() {
+  const [term, setTerm] = useState("");
+
   const [view, setView] = useState('Films');
   const [category, setSelectedCategory] = useState('');
-  const [filteredData, setFilteredData] = useState(null);
 
   const changeView = (newView) => {
     setView(newView);
@@ -30,7 +31,6 @@ function App() {
   const handleSearch = async (searchTerm) => {
     try {
       const res = await axios.get(`http://localhost:4000/api/film/getOne/${searchTerm}`);
-      setFilteredData(res.data ? [res.data] : []);
     } catch (err) {
       console.log('Error searching films:', err);
     }
@@ -57,9 +57,9 @@ function App() {
         </select>
       </nav>
       <div>
-        <Search handleSearch={handleSearch} />
+        <Search handleSearch={handleSearch}  set={setTerm}/>
         {view === 'Category' && <Category category={category} />}
-        {view === 'Films' && <Films data={filteredData || []} />}
+        {view === 'Films' && <Films term={term} />}
         {view === 'AddFilm' && <AddFilm changeView={changeView} />}
         {view === 'UpdateFilm' && <UpdateFilm changeView={changeView} />}
       </div>
