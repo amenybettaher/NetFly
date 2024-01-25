@@ -67,6 +67,8 @@ function Films({ term, onBuy }) {
     onBuy(film);
   };
 
+
+
   return (
     <div className='all-product'>
       {films
@@ -74,9 +76,9 @@ function Films({ term, onBuy }) {
         .map((item) => (
           <div key={item.id} className={`product-list-item ${selectedFilm && selectedFilm.name !== item.name ? 'blur' : ''}`} onClick={() => handleFilmClick(item)}>
             <img src={item.img} alt={item.name} />
-            <h1 className='product-list-item-title'>Name: {item.name}</h1>
-            <h1 className='product-list-item-price'>Price: {item.price}</h1>
-            <p className='product-list-item-description'>Description: {item.description.slice(0, 100)}...</p>
+            <h1 className='product-list-item-title'> {item.name}</h1>
+            <h1 className='product-list-item-price'>{item.price}</h1>
+            <p className='product-list-item-description'>{item.description.slice(0, 100)}...</p>
             <p className='product-list-item-category'>Category: {item.category}</p>
 
             {selectedFilm && selectedFilm.name === item.name && (
@@ -97,7 +99,9 @@ function Films({ term, onBuy }) {
             )}
 
             <button id='buy' onClick={() => handleBuy(item)}>Buy</button>
+
             <button onClick={() => handleDelete(item.name)}>Delete</button>
+            
           </div>
         ))}
       {selectedFilm && (
@@ -129,5 +133,5 @@ function Films({ term, onBuy }) {
     </div>
   );
 }
-console.log("aw l console log hne")
+
 export default Films;

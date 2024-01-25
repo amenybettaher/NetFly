@@ -9,7 +9,7 @@ body{
 }
 
 .logo {
-  width: 80px;  
+  width: 65px;  
   height: auto; 
   margin-left: 0%; 
   margin-top: auto;
@@ -79,8 +79,13 @@ body{
   font-size: 17px;
   font-weight: bold;
   margin-bottom: 8px;
-  color: #e6e9ec; 
+  color: #e6e9ec;
+  font-family: 'Times New Roman', Times, serif;
 }
+.product-list-item-category {
+font-family: 'Times New Roman', Times, serif;
+}
+
 
 .all-product .product-list-item-price {
 font-size:17px;
@@ -396,9 +401,11 @@ font-size:17px;
 label{color: #ccc;}
 .product-list-item-description{
   color: bisque;
+  font-size: 12px;
 }
 .product-list-item-category{
-  color: #ddd;
+  color: #be0404;
+  margin-bottom: 2%;
 }
 video{width: 100%;
   height: 500px;
@@ -583,47 +590,41 @@ video{width: 100%;
 .product-list-item.blur {
   filter: blur(5px);
 }
+
+
 #buy{
-  background-color: red;
+  background-color: rgb(57, 2, 2);
   color: white;
   margin-right: 200px;
-}
-.cart-container {
-  margin-top: 20px;
+  font-size: medium;
 }
 
-.cart-list {
-  list-style: none;
-  padding: 0;
-  color: #cbbcbc;
+.category{
+  border: none;
+  
+  padding: 6px;
+  font-size: 1rem;
+ font-family: 'Times New Roman', Times, serif;
+  background-color: #2e0202;
+  box-shadow: 1px 1px 2px #ccc;
+  color: #fff;
+  margin: auto;
+  margin-right: 1%;
+ 
 }
 
-.cart-item {
-  display: flex;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  padding: 10px;
+.k{
+  background-color: #000000;
+  font-family:'Times New Roman', Times, serif;
 }
 
-.cart-item-image {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  margin-right: 10px;
+.items{
+  font-family: 'Times New Roman', Times, serif;
+}
+.items span {
+  font-size: 20px;
 }
 
-.cart-item-details {
-  flex: 1;
-  color: antiquewhite;
-}
-
-.cart-item-details h3,
-.cart-item-details p {
-  margin: 0;
-}
-h2{
-  color: rgb(167, 162, 156);
-}
-h3{
-  color: rgb(167, 162, 156);
+.navbar h2{
+  font-family: 'Times New Roman', Times, serif;
 }
