@@ -8,7 +8,7 @@ import Search from './components/Search.jsx';
 import logo from './logo/logo.png';
 import AddProduct from './components/AddProduct';
 import Footer from './components/Footer.jsx';
-
+import video from './video/video.mp4'
 
 function App() {
   const [term, setTerm] = useState("");
@@ -77,7 +77,7 @@ function App() {
         <Search handleSearch={handleSearch}  set={setTerm}/>
 
 
-        <h1>jhgiuftdyrsfugyhusx</h1>
+        <video src={video}/>
 
         {view === 'Category' && <Category category={category} />}
         {view === 'Films' && <Films data={filteredData || []} onBuy={handleBuy} />}
