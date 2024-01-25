@@ -1,8 +1,11 @@
+
+
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../addFilm.css'; 
 
 function AddFilm({ changeView }) {
-    const [img, setImg] = useState('');
+  const [img, setImg] = useState('');
   const [name, setName] = useState('');
   const [description, setDesc] = useState('');
 
@@ -12,29 +15,29 @@ function AddFilm({ changeView }) {
   const handleAddFilm = () => {
     axios
       .post('http://localhost:4000/api/film/add', {
-        img:img,
+        img: img,
         name: name,
         description: description,
         price: price,
         category: category,
       })
       .then((response) => {
-        console.log('Cake added successfully:', response.data);
-        changeView('Cakes');
+        console.log('Film added successfully:', response.data);
+        changeView('Films');
       })
       .catch((error) => {
-        console.error('Error adding cake:', error);
+        console.error('Error adding film:', error);
       });
   };
 
   return (
-    <div className="add">
+    <div className="add-form">
       <label>ImageUrl:</label>
       <input type="text" value={img} onChange={(e) => setImg(e.target.value)} />
 
       <label>Name:</label>
       <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
- 
+
       <label>Description:</label>
       <input type="text" value={description} onChange={(e) => setDesc(e.target.value)} />
 
@@ -53,3 +56,4 @@ function AddFilm({ changeView }) {
 }
 
 export default AddFilm;
+

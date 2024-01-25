@@ -17,11 +17,10 @@ const Footer = () => {
       <div className="footer-center">
         <div>
           <i className="fa fa-map-marker"></i>
-          <p><span>25 A.avenue lahbib bourgiba</span> Nebeul Tunis</p>
+          <p><span>NetFly Tunisie</span></p>
         </div>
         <div>
-          <i className="fa fa-phone"></i>
-          <p>+216 98.462.247</p>
+        
         </div>
         <div>
           <i className="fa fa-envelope"></i>
@@ -32,7 +31,7 @@ const Footer = () => {
       <div className="footer-right">
         <p className="footer-company-about">
           <span>About Us</span>
-          Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+         Welcome to Net Fly  ! here you can find your dreamer films and you can sell your favorite one . Enjoy with us !
         </p>
        
       </div>
