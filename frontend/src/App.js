@@ -7,7 +7,7 @@ import Category from './components/Category.jsx';
 import Search from './components/Search.jsx';
 import logo from './logo/logo.png';
 
-
+import Footer from './components/Footer.jsx';
 
 function App() {
   const [view, setView] = useState('Films');
@@ -63,6 +63,7 @@ function App() {
         {view === 'AddFilm' && <AddFilm changeView={changeView} />}
         {view === 'UpdateFilm' && <UpdateFilm changeView={changeView} />}
       </div>
+      <Footer />
     </div>
   );
 }

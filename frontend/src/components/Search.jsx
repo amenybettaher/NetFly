@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+
 
 function Search({ handleSearch }) {
   const [searchTerm, setSearchTerm] = useState('');
