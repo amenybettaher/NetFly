@@ -1,5 +1,3 @@
-// Category.jsx
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -29,7 +27,6 @@ function Category({ category }) {
 
   return (
     <div>
-      <h2>{category.charAt(0).toUpperCase() + category.slice(1)} in Category: {category}</h2>
       <div className="films-container">
         {films.map((item) => (
           <div key={item.id} className="film-card">

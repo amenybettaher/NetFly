@@ -77,11 +77,13 @@ function App() {
         <Search handleSearch={handleSearch}  set={setTerm}/>
 
 
-        <video src={video}/>
+        {/* <video src={video}/> */}
+
+      
 
         {view === 'Category' && <Category category={category} />}
-        {view === 'Films' && <Films data={filteredData || []} onBuy={handleBuy} />}
-        {view === 'Films' && <Films term={term} />}
+        {view === 'Films' && <Films data={filteredData || []} term={term}  onBuy={handleBuy} />}
+        {/* {view === 'Films' && <Films term={term} />} */}
 
         {view === 'AddFilm' && <AddFilm changeView={changeView} />}
         {view === 'UpdateFilm' && <UpdateFilm changeView={changeView} />}
@@ -107,6 +109,12 @@ function App() {
           </div>
         )}
       </div>
+      <div className='hello'>
+      <p>  Regardez NetFly sur votre TV</p>
+      <h3>
+Regardez NetFly sur votre Smart TV, PlayStation, Xbox, Chromecast, Apple TV, lecteur Blu-ray et bien plus.</h3>
+</div>
+<img className='tv' src='https://lifehacker.com/imagery/articles/01HFACN0NGPM1TVSMFKSVG51ME/hero-image.fill.size_1248x702.v1700084656.png'/>
       <Footer />
     </div>
   );
