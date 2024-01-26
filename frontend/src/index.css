@@ -613,6 +613,10 @@ video{width: 100%;
  
 }
 
+.navbar h2{
+  font-family: 'Times New Roman', Times, serif;
+}
+
 
 .cart-item {
   display: flex;
@@ -800,3 +804,18 @@ h3{
   font-family: 'Times New Roman', Times, serif;
 
 }}
+
+.hello p {
+  margin-left: 10%;
+  margin-top: 10%;
+  color :white;
+  font-size: 250%;
+}
+.hello h3 {
+  margin-left: 10%;
+}
+.tv {
+  width: 50%;
+  margin-left: 20%;
+  
+}
